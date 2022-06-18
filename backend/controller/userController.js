@@ -1,9 +1,13 @@
 const asyncHandler = require('express-async-handler')
+const user = require('../models/usersModel');
+
+
 //@desc Get Users
 //@routes GET /api/users
 //@access Privates
 const getUsers = asyncHandler (async (req, res) =>{
-    res.status(200).json({message: 'Get users'});
+    const users = await user.find();
+    res.status(200).json(users);
 })
 
 
@@ -16,7 +20,12 @@ const setUsers = asyncHandler (async (req, res) =>{
         res.status(400)
         throw new Error('Please add a text field');
     }
-    res.status(200).json({message: 'Set users'});
+    
+    const users = await user.create({
+        name: req.body.text,
+        cnic: req.body.text
+    })
+    res.status(200).json(users);
     
 })
 
