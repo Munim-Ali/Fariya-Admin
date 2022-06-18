@@ -17,7 +17,6 @@ app.use('/api/users', require('./backend/routes/userRoutes'))
 
 app.use(errorHandler)
 
-// console.log(`Server runs on ${port}`)
 app.listen(port, () => {
     console.log(`Server runs on ${port}`)
 })

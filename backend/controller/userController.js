@@ -62,7 +62,14 @@ const updateUsers = asyncHandler (async (req, res) =>{
 //@routes Delete /api/users/:id
 //@access Privates
 const deleteUsers = asyncHandler (async (req, res) =>{
-    res.status(200).json({message: `Delete users ${req.params.id}`});
+
+    const users = await user.findOne(req.params.name);
+    if(!users){
+        res.status(400)
+        throw new Error('User not found!')
+    }
+    await users.remove();
+    res.status(200).json({ name: req.params.name });
 })
 
 module.exports = {
