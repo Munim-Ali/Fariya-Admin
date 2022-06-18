@@ -16,14 +16,24 @@ const getUsers = asyncHandler (async (req, res) =>{
 //@routes POST /api/users/:id
 //@access Privates
 const setUsers = asyncHandler (async (req, res) =>{
-    if(!req.body.text){
-        res.status(400)
-        throw new Error('Please add a text field');
-    }
+    // if(!req.body.text){
+    //     res.status(400)
+    //     throw new Error('Please add a text field');
+    // }
     
     const users = await user.create({
-        name: req.body.text,
-        cnic: req.body.text
+        name: req.body.name,
+        father_name: req.body.father_name,
+        cnic: req.body.cnic,
+        mobileNumber_1: req.body.mobileNumber_1,
+        mobileNumber_2: req.body.mobileNumber_2,
+        address: req.body.address,
+        area: req.body.area,
+        package: req.body.package,
+        subDealer: req.body.subDealer,
+        monthly: req.body.monthly,
+        status: req.body.status
+
     })
     res.status(200).json(users);
     
@@ -35,7 +45,15 @@ const setUsers = asyncHandler (async (req, res) =>{
 //@routes GET /api/users/:id
 //@access Privates
 const updateUsers = asyncHandler (async (req, res) =>{
-    res.status(200).json({message: `Update users ${req.params.id}`});
+    const users = await user.findOne(req.params.name);
+    if(!users){
+        res.status(400)
+        throw new Error('User not found!')
+    }
+    const updatedUsers = await user.findOneAndUpdate(req.params.name, req.body, {
+        new: true,
+    })
+    res.status(200).json(updatedUsers);
 })
 
 
