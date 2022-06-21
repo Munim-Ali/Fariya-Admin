@@ -14,6 +14,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended : false }))
 
 app.use('/api/users', require('./backend/routes/userRoutes'))
+app.use('/api/register', require('./backend/routes/registerRoutes'))
+
 
 app.use(errorHandler)
 
