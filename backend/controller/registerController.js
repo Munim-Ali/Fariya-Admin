@@ -26,13 +26,15 @@ const registerPerson = asyncHandler ( async(req, res) => {
     const person = await Person.create({
         username,
         email,
-        password: hashPassword
+        password: hashPassword,
+
     })
     if(person){
         res.status(201).json({
             _id: person.id,
             name: person.username,
             email: person.email,
+            token: generateToken(person._id)
         })
     }else{
         res.status(400)
@@ -54,6 +56,7 @@ const loginPerson = asyncHandler ( async (req, res) => {
             name: personUserName.username,
             email: personUserName.email,
             password: personUserName.password,
+            token: generateToken(personUserName._id)
         })
     } else{
         res.status(400)
@@ -63,15 +66,25 @@ const loginPerson = asyncHandler ( async (req, res) => {
 })
 //@desc Get person data person for Dashboard
 //@routes GET /api/register/me
-//@access public
+//@access private
 
-const getMe = asyncHandler (async (req, res) => {
+const getPerson = asyncHandler (async (req, res) => {
     res.json({ message: 'logged-in User' })
 })
 
 
+
+
+
+
+//Generate JWT
+const generateToken = (id) => {
+    return jwt.sign({id}, process.env.JWT_SECRET, {
+        expiresIn: '30d'
+    })
+}
 module.exports = {
     registerPerson,
     loginPerson,
-    getMe,
+    getPerson,
 }
