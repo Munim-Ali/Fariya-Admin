@@ -4,7 +4,9 @@ const Person = require('../models/registerModel')
 
 const protect = asyncHandler (async (res, req, next) => {
     let token
-    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
+    const authHeader=req.get('Authorization')
+
+    if(authHeader){
         try{
             //Get token from header
             token = req.headers.authorization.split(' ')[1]
@@ -18,14 +20,15 @@ const protect = asyncHandler (async (res, req, next) => {
             next()
         }catch(error){
             console.log(error)
-            res.status(401)
+            error.statusCode=401
             throw new Error('Not Authorized')
         }
     }
 
     if(!token){
-        res.status(401)
-        throw new Error('Not Authorized, No token')
+        const err=new Error("NOT AUTHENTICATE")
+        err.statusCode=401
+        throw err
     }
 })
 
