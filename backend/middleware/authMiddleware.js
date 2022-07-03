@@ -2,34 +2,35 @@ const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 const Person = require('../models/registerModel')
 
-const protect = asyncHandler (async (res, req, next) => {
-    let token
-    const authHeader=req.get('Authorization')
+const protect = asyncHandler(async (req, res, next) => {
+  let token
 
-    if(authHeader){
-        try{
-            //Get token from header
-            token = req.headers.authorization.split(' ')[1]
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    try {
+      // Get token from header
+      token = req.headers.authorization.split(' ')[1]
 
-            //verify Token
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
+      // Verify token
+      const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-            //Get person from the token
-            req.Person = await Person.findById(decoded.id).select('-password')
+      // Get user from the token
+      req.Person = await Person.findById(decoded.id).select('-password')
 
-            next()
-        }catch(error){
-            console.log(error)
-            error.statusCode=401
-            throw new Error('Not Authorized')
-        }
+      next()
+    } catch (error) {
+      console.log(error)
+      res.status(401)
+      throw new Error('Not authorized')
     }
+  }
 
-    if(!token){
-        const err=new Error("NOT AUTHENTICATE")
-        err.statusCode=401
-        throw err
-    }
+  if (!token) {
+    res.status(401)
+    throw new Error('Not authorized, no token')
+  }
 })
 
-module.exports = {protect}
+module.exports = { protect }
