@@ -11,7 +11,6 @@ function App() {
         <Router>
         <Sidebar />
         <Header />
-        <Sidebar />
           <div className="container">
             <Routes>
               <Route path="/" element={<Dashboard />} />

@@ -14,7 +14,7 @@
 .sidebar li{
   list-style-type: none;
   padding: 0px 6%;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .sidebar li a{
   color: #ffffff;
@@ -107,7 +107,8 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: #fff;
+  border-bottom: 2px solid #fff ;
 }
 
 .header ul li a svg {
