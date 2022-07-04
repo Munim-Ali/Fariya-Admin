@@ -8,8 +8,8 @@ export const SidebarData = [
         cName: 'sidebarItem',
     },
     {
-        title: "Add User",
-        link: '/login',
+        title: "Register User",
+        link: '/register',
         cName: 'sidebarItem',
     },
     {
