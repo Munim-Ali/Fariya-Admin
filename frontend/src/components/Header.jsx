@@ -10,7 +10,7 @@ function Sidebar() {
         </div>
         <ul>
             <li>
-                <Link to="/login">
+                <Link to="/">
                     <FaSignInAlt />Login
                 </Link>
             </li>
