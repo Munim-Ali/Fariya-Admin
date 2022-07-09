@@ -62,7 +62,7 @@ const loginPerson = asyncHandler ( async (req, res) => {
         res.status(400)
         throw new Error('Invalid Credentials')
     }
-    res.json({ message: 'Login User' })
+    // res.json({ message: 'Login User' })
 })
 //@desc Get person data person for Dashboard
 //@routes GET /api/register/me
