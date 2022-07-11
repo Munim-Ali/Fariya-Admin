@@ -41,7 +41,6 @@ const registerPerson = asyncHandler ( async(req, res) => {
         throw new Error('Invalid user data')
     }
 
-    res.json({ message: 'Register User' })
 })
 //@desc Authenticate person for Dashboard
 //@routes GET /api/register/login
