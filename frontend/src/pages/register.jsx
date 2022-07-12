@@ -28,7 +28,7 @@ function Register() {
     }
 
     if(isSuccess || person){
-      navigate('/dashboard')
+      navigate('/login')
     }
 
     dispatch(reset())

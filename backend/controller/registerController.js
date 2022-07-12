@@ -77,6 +77,21 @@ const getPerson = asyncHandler (async (req, res) => {
 })
 
 
+//@desc delete person data  for Dashboard
+//@routes DELETE /api/register/username
+//@access private
+const deletePerson = asyncHandler (async (req, res) =>{
+
+    const addedPerson = await Person.findOne(req.params.username);
+    if(!addedPerson){
+        res.status(400)
+        throw new Error('Person not found!')
+    }
+    await addedPerson.remove();
+    res.status(200).json({ username: req.params.username });
+})
+
+
 
 
 
@@ -91,4 +106,5 @@ module.exports = {
     registerPerson,
     loginPerson,
     getPerson,
+    deletePerson,
 }
