@@ -8,11 +8,7 @@ import Register from './pages/register'
 import Header from './components/Header'
 import Sidebar from './components/Siderbar/Sidebar'
 
-// const SidebarLayout = () => (
-//   <>
-//     <Sidebar />
-//   </>
-// );
+
 function App() {
   return (
       <>
