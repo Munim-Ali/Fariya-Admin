@@ -18,10 +18,8 @@ function App() {
             <Routes>
               <Route path="/register" element={<Register />} />
               <Route path="/" element={<Login />} />
-            </Routes>
-            <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
-            </Routes> 
+            </Routes>
           </div>
         </Router>
         <ToastContainer />

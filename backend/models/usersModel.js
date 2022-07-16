@@ -38,7 +38,11 @@ const userSchema = mongoose.Schema({
         },
         monthly: {
             type: String,
-            required: [false, "Please add a Monthly amount"]
+            required: [true, "Please add a Monthly amount"]
+        },
+        collector: {
+            type: String,
+            required: [true, "Please add the payment collector name"]
         },
         status: {
             type: Boolean,

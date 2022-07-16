@@ -3,8 +3,35 @@
   outline: #4F77AA auto 1px;
   box-shadow: 1px #ffffff;
 }
+.component-layout{
+  width: 82%;
+  margin-left: 18%;
+}
 .register-form .form-group input, .form-group textarea, .form-group select, .btn-block{
   width : 50% !important;
+}
+.user-reg-form-group{
+  display: flex;
+  text-align: left;
+  flex-flow: column;
+  width: 45%;
+}
+.user-reg-form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+.inline-form-fields{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-form{
+  width: 100%;
+  margin: 0 auto;
 }
 /* Sidebar Styling Start*/
 .sidebar{
@@ -175,7 +202,8 @@ h3 {
 
 .form-group input,
 .form-group textarea,
-.form-group select {
+.form-group select
+{
   width: 100%;
   padding: 10px;
   border: 1px solid #e6e6e6;

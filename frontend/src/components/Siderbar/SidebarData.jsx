@@ -1,19 +1,20 @@
 import React from 'react'
+import UserForm from '../UserForm'
 
 export const SidebarData = [
     {
         title: "Add User",
-        link: '/login',
+        link: '/UserForm',
         cName: 'sidebarItem',
     },
     {
         title: "Register User",
-        link: '/register',
+        link: '/Dashboard',
         cName: 'sidebarItem',
     },
     {
         title: "Add User",
-        link: '/login',
+        link: '/Dashboard',
         cName: 'sidebarItem',
     }
 ] 

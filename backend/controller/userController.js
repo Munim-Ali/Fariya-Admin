@@ -32,6 +32,7 @@ const setUsers = asyncHandler (async (req, res) =>{
         package: req.body.package,
         subDealer: req.body.subDealer,
         monthly: req.body.monthly,
+        collector: req.body.collector,
         status: req.body.status
 
     })
