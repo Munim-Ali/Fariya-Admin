@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
             type: String,
             required: [true, "Please add the name of user"]
         },
-        father_name: {
+        fatherName: {
             type: String,
             required: [true, "Please add the father name of user"]
         },
@@ -28,7 +28,7 @@ const userSchema = mongoose.Schema({
             type: String,
             required: [true, "Please add a area"]
         },
-        package: {
+        userPpackage: {
             type: String,
             required: [true, "Please add a Package"]
         },
@@ -44,7 +44,7 @@ const userSchema = mongoose.Schema({
             type: String,
             required: [true, "Please add the payment collector name"]
         },
-        status: {
+        userStatus: {
             type: Boolean,
             required: [true, "Please select status of users"],
             index: true

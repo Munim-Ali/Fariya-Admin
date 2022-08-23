@@ -10,7 +10,8 @@ function Dashboard() {
 
   useEffect(() => {
     if(!person){
-      navigate('/login')
+      navigate('/')
+      console.log(person)
     }
   }, [person, navigate])
 
