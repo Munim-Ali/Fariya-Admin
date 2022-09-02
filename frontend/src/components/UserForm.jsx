@@ -3,27 +3,27 @@ import {useDispatch} from 'react-redux'
 import {createUser, reset} from '../features/users/userSlice'
 
 
+const initialUserState = {
+    username: '',
+    father_name: '',
+    cnic: '',
+    mobileNumber_1: '',
+    mobileNumber_2: '',
+    address: '',
+    area: '',
+    userPackage: '',
+    dealer: '',
+    monthly: '',
+    collector: '',
+    userStatus: ''
 
+ }
 
 function UserForm() {
     
-    const [userData, setUserData] = useState ({
-       username: '',
-       fatherName: '',
-       cnic: '',
-       mobileNumber_1: '',
-       mobileNumber_2: '',
-       address: '',
-       area: '',
-       userPackage: '',
-       dealer: '',
-       monthly: '',
-       collector: '',
-       userStatus: ''
+    const [userData, setUserData] = useState (initialUserState)
 
-    })
-
-    const {username, fatherName, cnic, mobileNumber_1, mobileNumber_2, address, area, userPackage, dealer, monthly,
+    const {username, father_name, cnic, mobileNumber_1, mobileNumber_2, address, area, userPackage, dealer, monthly,
     collector, userStatus} = userData
 
     const dispatch = useDispatch()
@@ -36,25 +36,22 @@ function UserForm() {
     }
 
        const onSubmit = (e) => {
-        e.preventDefault()
-        const userData = {
-            username: '',
-            fatherName: '',
-            cnic: '',
-            mobileNumber_1: '',
-            mobileNumber_2: '',
-            address: '',
-            area: '',
-            userPackage: '',
-            dealer: '',
-            monthly: '',
-            collector: '',
-            userStatus: ''
-        }
-        dispatch(createUser({userData}))
-        setUserData('')
-    }
+        try{
 
+            e.preventDefault()
+            let dataToSubmit = {
+                ...userData,
+                userStatus: userStatus === "true" ? true : false
+            }
+            
+            console.log("dataToSubmit", dataToSubmit)
+            dispatch(createUser(dataToSubmit))
+            setUserData(initialUserState)
+        }catch(err){
+            console.log("error in submmitting", err)
+        }
+    }
+console.log("userData", userData)
   return (
     <section className="user-form">
         <form onSubmit={onSubmit}>
@@ -72,9 +69,9 @@ function UserForm() {
                     <label htmlFor="text">Father Name</label>
                     <input 
                     type="text" 
-                    name="fatherName" 
+                    name="father_name" 
                     id="father_name" 
-                    value={fatherName}
+                    value={father_name}
                     onChange={onChange}/>
                 </div>
                 <div className="user-reg-form-group">
@@ -87,7 +84,7 @@ function UserForm() {
                     onChange={onChange}/>
                 </div>
                 <div className="user-reg-form-group">
-                    <label htmlFor="text">Mobile Number</label>
+                    <label htmlFor="text">Mobil Number</label>
                     <input 
                     type="text" 
                     name="mobileNumber_1" 
@@ -123,7 +120,7 @@ function UserForm() {
                     onChange={onChange}/>
                 </div>
                 <div className="user-reg-form-group">
-                    <label htmlFor="text">Package</label>
+                    <label htmlFor="text">userPackage</label>
                     <input 
                     type="text" 
                     name="userPackage" 

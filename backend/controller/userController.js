@@ -20,20 +20,20 @@ const setUsers = asyncHandler (async (req, res) =>{
     //     res.status(400)
     //     throw new Error('Please add a text field');
     // }
-    
+    console.log("req.body", req.body)
     const users = await user.create({
-        name: req.body.name,
+        username: req.body.username,
         father_name: req.body.father_name,
         cnic: req.body.cnic,
         mobileNumber_1: req.body.mobileNumber_1,
         mobileNumber_2: req.body.mobileNumber_2,
         address: req.body.address,
         area: req.body.area,
-        package: req.body.package,
+        userPackage: req.body.userPackage,
         subDealer: req.body.subDealer,
         monthly: req.body.monthly,
         collector: req.body.collector,
-        status: req.body.status
+        userStatus: req.body.userStatus
 
     })
     res.status(200).json(users);

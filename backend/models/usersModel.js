@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const userSchema = mongoose.Schema({
-        name: {
+        username: {
             type: String,
             required: [true, "Please add the name of user"]
         },
-        fatherName: {
+        father_name: {
             type: String,
             required: [true, "Please add the father name of user"]
         },
@@ -28,7 +28,7 @@ const userSchema = mongoose.Schema({
             type: String,
             required: [true, "Please add a area"]
         },
-        userPpackage: {
+        userPackage: {
             type: String,
             required: [true, "Please add a Package"]
         },

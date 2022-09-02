@@ -12,6 +12,7 @@ const initialState = {
 
 export const createUser = createAsyncThunk ('users/create', async(userData, thunkAPI) => {
     try {
+        console.log("userData in action", userData)
         return await userService.createUser(userData)
         
     } catch (error) {
