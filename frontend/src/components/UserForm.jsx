@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {createUser, reset} from '../features/users/userSlice'
 
-
 const initialUserState = {
     username: '',
     father_name: '',
@@ -122,7 +121,7 @@ console.log("userData", userData)
                     onChange={onChange}/>
                 </div>
                 <div className="user-reg-form-group">
-                    <label htmlFor="text">userPackage</label>
+                    <label htmlFor="text">Package</label>
                     <input 
                     type="text" 
                     name="userPackage" 
@@ -157,15 +156,6 @@ console.log("userData", userData)
                     value={collector}
                     onChange={onChange}/>
                 </div>
-                {/* <div className="user-reg-form-group">
-                    <label htmlFor="text">Status</label>
-                    <input 
-                    type="text" 
-                    name="userStatus" 
-                    id="userStatus" 
-                    value={userStatus}
-                    onChange={onChange}/>
-                </div> */}
                 <div className="user-reg-form-group">
                     <label htmlFor="text">Status</label>
                         <select name="userStatus" id="userStatus" onChange={onChange}>
