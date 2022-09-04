@@ -5,7 +5,7 @@
 }
 .component-layout{
   width: 82%;
-  margin-left: 18%;
+  margin-left: 17%;
 }
 .register-form .form-group input, .form-group textarea, .form-group select, .btn-block{
   width : 50% !important;
@@ -17,6 +17,14 @@
   width: 45%;
 }
 .user-reg-form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+.user-reg-form-group select {
   width: 100%;
   padding: 10px;
   border: 1px solid #e6e6e6;
@@ -38,7 +46,7 @@
 .sidebar{
   height: 100vh;
   z-index: 2;
-  width: 18%;
+  width: 17%;
   background-color: #0d0137;
   position: absolute;
   top: 0;
@@ -138,19 +146,11 @@ h3 {
   justify-content: space-between;
 }
 
-.header ul li {
-  margin-left: 20px;
-}
 
 .header ul li a {
   display: flex;
   align-items: center;
   color: #ffffff
-}
-
-.header ul li a:hover {
-  color: #fff;
-  border-bottom: 2px solid #fff ;
 }
 
 .header ul li a svg {

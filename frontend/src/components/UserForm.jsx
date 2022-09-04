@@ -41,10 +41,12 @@ function UserForm() {
             e.preventDefault()
             let dataToSubmit = {
                 ...userData,
-                userStatus: userStatus === "true" ? true : false
+                userStatus: userStatus === "Active" ? true : false
+                
             }
             
             console.log("dataToSubmit", dataToSubmit)
+            console.log(userStatus)
             dispatch(createUser(dataToSubmit))
             setUserData(initialUserState)
         }catch(err){
@@ -155,7 +157,7 @@ console.log("userData", userData)
                     value={collector}
                     onChange={onChange}/>
                 </div>
-                <div className="user-reg-form-group">
+                {/* <div className="user-reg-form-group">
                     <label htmlFor="text">Status</label>
                     <input 
                     type="text" 
@@ -163,6 +165,13 @@ console.log("userData", userData)
                     id="userStatus" 
                     value={userStatus}
                     onChange={onChange}/>
+                </div> */}
+                <div className="user-reg-form-group">
+                    <label htmlFor="text">Status</label>
+                        <select name="userStatus" id="userStatus" onChange={onChange}>
+                            <option value="Active">Active</option>
+                            <option value="In-active">In-active</option>
+                        </select>
                 </div>
             </div> 
             <div className="form-group">
